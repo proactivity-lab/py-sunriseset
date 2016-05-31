@@ -1,15 +1,20 @@
-""" Algorithm to calculate sunrise and sunset."""
+"""sunriseset.py: Algorithm to calculate sunrise and sunset."""
+
+import math
+
 
 __author__ = "Raido Pahtma"
 __license__ = "MIT"
 
 
-import math
+version = "0.1.0"
+
 
 ZENITH_OFFICIAL = 90+50/60.0
 ZENITH_CIVIL = 96
 ZENITH_NAUTICAL = 102
 ZENITH_ASTRONOMICAL = 108
+
 
 def sun_time(zenith, rising, year, month, day, longitude, latitude, local=0):
     """
@@ -191,7 +196,6 @@ def sun_time(zenith, rising, year, month, day, longitude, latitude, local=0):
         UT = T - lngHour
         NOTE: UT potentially needs to be adjusted into the range [0,24) by adding/subtracting 24
     """
-
     UT = T - lngh
 
     """
@@ -206,6 +210,7 @@ def sun_time(zenith, rising, year, month, day, longitude, latitude, local=0):
         local_T -= 24
 
     return local_T
+
 
 def convert_time(ut):
     """
